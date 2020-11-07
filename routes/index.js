@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 const messages=[
   {
     text:'Hi! there',
@@ -38,9 +39,14 @@ router.get('/miniboard/add' ,function(req,res){
   })
   //res.send('respond resource')
 })
-router.get('./miniboard/form',function(req,res){
-  res.render('form' ,{
-    messages:messages
-  })
+router.get('/miniboard/form',function(req,res){
+  res.render('form' )
+})
+router.post('/new',function(req,res){
+  
+ userText= req.body.user,
+  messageText=req.body.message
+  messages.push({user:userText,text:messageText,added:new Date()})
+  res.redirect('/miniboard/add')
 })
 module.exports = router;

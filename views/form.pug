@@ -1,11 +1,21 @@
 extends layout
-block content
-    ul
-        each message ,i in messages
-            li=message.text
-            li=message.user
-            li=message.added
 
+block content
+    h1 #{title}
+    .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Sign Up
+
+        // register form
+        form(method='POST' action='/new')
+          div.form-group
+            label(for='user') User:
+            input#name.form-control(type='text', placeholder='Mumbi' name='user')
+          div.form-group
+            label(for='message') Message:
+            input#email.form-control(type='message', placeholder='Hey there at Mumbi' name='message')
     
+          button.btn.btn-primary(type='submit') Sign up
         
         

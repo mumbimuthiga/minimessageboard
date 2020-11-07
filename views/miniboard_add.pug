@@ -1,0 +1,9 @@
+extends layout
+block content
+    h1 #{title}
+    ul
+        each message ,i in messages
+            li=message.text
+            li=message.user
+            li=message.added
+        
